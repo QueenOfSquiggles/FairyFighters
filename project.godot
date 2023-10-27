@@ -1,0 +1,51 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="FairyFighters"
+run/main_scene="res://Core/sc4x_entry.tscn"
+config/features=PackedStringArray("4.1", "C#", "Forward Plus")
+config/icon="res://icon.png"
+
+[autoload]
+
+Scenes="*res://Core/Scenes/Utility/Autoload/scenes.tscn"
+BGM="*res://Core/Scenes/Utility/Autoload/bgm.tscn"
+GameLobby="*res://Game/Multiplayer/GameLobby.cs"
+
+[debug]
+
+multirun/number_of_windows=2
+multirun/add_custom_args=true
+multirun/window_args=["-- host start=3", "-- join", "-- join"]
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=480
+
+[dotnet]
+
+project/assembly_name="FairyFighters"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/rmsmartshape/plugin.cfg", "res://addons/squiggles_core_autoloads/plugin.cfg")
+
+[gui]
+
+theme/custom="res://Core/Assets/Theme/default_theme.tres"
+theme/custom_font="res://Core/Assets/Fonts/DelaGothicOne-Regular.ttf"
+
+[rendering]
+
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

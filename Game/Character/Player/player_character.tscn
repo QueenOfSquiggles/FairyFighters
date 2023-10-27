@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh0dnks42mkqg"]
+
+[ext_resource type="Script" path="res://Game/Character/Player/PlayerCharacter.cs" id="1_c1qur"]
+[ext_resource type="Texture2D" uid="uid://c8hcrgea8pg5r" path="res://icon.png" id="1_oottd"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_aaktm"]
+properties/0/path = NodePath(".:_mpPosition")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vswt0"]
+radius = 27.1662
+
+[node name="PlayerCharacter" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_c1qur")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_interval = 0.1
+replication_config = SubResource("SceneReplicationConfig_aaktm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.344968, 0.344968)
+texture = ExtResource("1_oottd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vswt0")

@@ -1,0 +1,206 @@
+[gd_scene load_steps=5 format=3 uid="uid://deamev7x6xyvj"]
+
+[ext_resource type="PackedScene" uid="uid://ci8q8yf6jrc8n" path="res://Core/Scenes/Utility/UI_Tools/ui_effects.tscn" id="1_7yywi"]
+[ext_resource type="Script" path="res://Game/Menus/MainMenu.cs" id="1_acr3w"]
+[ext_resource type="PackedScene" uid="uid://b8y0v225qjej4" path="res://Core/Scenes/Utility/UI_Tools/request_focus_on_parent.tscn" id="2_8ul0e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7otig"]
+font_size = 28
+outline_size = 10
+outline_color = Color(0.278431, 0.0235294, 0, 1)
+shadow_size = 16
+shadow_color = Color(0, 0, 0, 0.682353)
+shadow_offset = Vector2(5, 5)
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("_multiplayerPanel", "_mpAddress", "_mpName", "_mpIsHost")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_acr3w")
+_contentToolsScene = "res://Game/Menus/content_tools_main.tscn"
+_contentToolsColour = Color(0.862745, 0.435294, 0.819608, 1)
+_manageModsScene = "res://Game/Menus/manage_mods_menu.tscn"
+_manageModsColour = Color(0.219608, 0.643137, 0.364706, 1)
+_multiplayerPanel = NodePath("SlidingPanels/PanelOnlineOptions")
+_mpAddress = NodePath("SlidingPanels/PanelOnlineOptions/MarginContainer/VBoxContainer/HBoxContainer/TextAddress")
+_mpName = NodePath("SlidingPanels/PanelOnlineOptions/MarginContainer/VBoxContainer/TextUsername")
+_mpIsHost = NodePath("SlidingPanels/PanelOnlineOptions/MarginContainer/VBoxContainer/CheckHosting")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Created by QueenOfSquiggles (2023)"
+
+[node name="SlidingPanels" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="PanelOnlineOptions" type="PanelContainer" parent="SlidingPanels"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -355.0
+offset_top = -71.0
+offset_bottom = 71.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SlidingPanels/PanelOnlineOptions"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SlidingPanels/PanelOnlineOptions/MarginContainer"]
+layout_mode = 2
+
+[node name="CheckHosting" type="CheckButton" parent="SlidingPanels/PanelOnlineOptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Host?"
+alignment = 1
+icon_alignment = 1
+
+[node name="UIEffects7" parent="SlidingPanels/PanelOnlineOptions/MarginContainer/VBoxContainer/CheckHosting" node_paths=PackedStringArray("_sfxSelect", "_sfxClick") instance=ExtResource("1_7yywi")]
+_sfxSelect = NodePath("../../../../../../MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer/BtnPlayLocal/UIEffects/Select")
+_sfxClick = NodePath("../../../../../../MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer/BtnPlayLocal/UIEffects/Click")
+
+[node name="TextUsername" type="LineEdit" parent="SlidingPanels/PanelOnlineOptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Display Name"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SlidingPanels/PanelOnlineOptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SlidingPanels/PanelOnlineOptions/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Address"
+
+[node name="TextAddress" type="LineEdit" parent="SlidingPanels/PanelOnlineOptions/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "127.0.0.1"
+
+[node name="HSeparator" type="HSeparator" parent="SlidingPanels/PanelOnlineOptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BtnJoinHost" type="Button" parent="SlidingPanels/PanelOnlineOptions/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Join/Host"
+
+[node name="UIEffects8" parent="SlidingPanels/PanelOnlineOptions/MarginContainer/VBoxContainer/BtnJoinHost" node_paths=PackedStringArray("_sfxSelect", "_sfxClick") instance=ExtResource("1_7yywi")]
+_sfxSelect = NodePath("../../../../../../MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer/BtnPlayLocal/UIEffects/Select")
+_sfxClick = NodePath("../../../../../../MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer/BtnPlayLocal/UIEffects/Click")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ButtonsPanel" type="PanelContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -230.0
+offset_right = 159.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Control/ButtonsPanel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control/ButtonsPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="BtnPlayLocal" type="Button" parent="MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play Local"
+
+[node name="UIEffects" parent="MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer/BtnPlayLocal" instance=ExtResource("1_7yywi")]
+
+[node name="RequestFocusOnParent" parent="MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer/BtnPlayLocal" instance=ExtResource("2_8ul0e")]
+
+[node name="BtnPlayOnline" type="Button" parent="MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play Online"
+
+[node name="UIEffects2" parent="MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer/BtnPlayOnline" node_paths=PackedStringArray("_sfxSelect", "_sfxClick") instance=ExtResource("1_7yywi")]
+_sfxSelect = NodePath("../../BtnPlayLocal/UIEffects/Select")
+_sfxClick = NodePath("../../BtnPlayLocal/UIEffects/Click")
+
+[node name="BtnOptions" type="Button" parent="MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="UIEffects3" parent="MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer/BtnOptions" node_paths=PackedStringArray("_sfxSelect", "_sfxClick") instance=ExtResource("1_7yywi")]
+_sfxSelect = NodePath("../../BtnPlayLocal/UIEffects/Select")
+_sfxClick = NodePath("../../BtnPlayLocal/UIEffects/Click")
+
+[node name="BtnContentTools" type="Button" parent="MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Content Tools"
+
+[node name="UIEffects4" parent="MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer/BtnContentTools" node_paths=PackedStringArray("_sfxSelect", "_sfxClick") instance=ExtResource("1_7yywi")]
+_sfxSelect = NodePath("../../BtnPlayLocal/UIEffects/Select")
+_sfxClick = NodePath("../../BtnPlayLocal/UIEffects/Click")
+
+[node name="BtnManageMods" type="Button" parent="MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Manage Mods"
+
+[node name="UIEffects5" parent="MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer/BtnManageMods" node_paths=PackedStringArray("_sfxSelect", "_sfxClick") instance=ExtResource("1_7yywi")]
+_sfxSelect = NodePath("../../BtnPlayLocal/UIEffects/Select")
+_sfxClick = NodePath("../../BtnPlayLocal/UIEffects/Click")
+
+[node name="BtnQuit" type="Button" parent="MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="UIEffects6" parent="MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer/BtnQuit" node_paths=PackedStringArray("_sfxSelect", "_sfxClick") instance=ExtResource("1_7yywi")]
+_sfxSelect = NodePath("../../BtnPlayLocal/UIEffects/Select")
+_sfxClick = NodePath("../../BtnPlayLocal/UIEffects/Click")
+
+[node name="TitlePanel" type="PanelContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+offset_right = 255.0
+offset_bottom = 63.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Control/TitlePanel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Control/TitlePanel/MarginContainer"]
+layout_mode = 2
+text = "Fairy Fighters"
+label_settings = SubResource("LabelSettings_7otig")
+
+[connection signal="pressed" from="SlidingPanels/PanelOnlineOptions/MarginContainer/VBoxContainer/BtnJoinHost" to="." method="OnJoinHost"]
+[connection signal="pressed" from="MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer/BtnPlayLocal" to="." method="OnPlayLocal"]
+[connection signal="pressed" from="MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer/BtnPlayOnline" to="." method="OnPlayOnline"]
+[connection signal="pressed" from="MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer/BtnOptions" to="." method="OnOptions"]
+[connection signal="pressed" from="MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer/BtnContentTools" to="." method="OnContentTools"]
+[connection signal="pressed" from="MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer/BtnManageMods" to="." method="OnManageMods"]
+[connection signal="pressed" from="MarginContainer/Control/ButtonsPanel/MarginContainer/VBoxContainer/BtnQuit" to="." method="OnQuit"]

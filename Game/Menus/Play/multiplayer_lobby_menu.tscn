@@ -1,0 +1,186 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwbvqgn5evcbr"]
+
+[ext_resource type="Script" path="res://Game/Menus/Play/MultiplayerLobbyMenu.cs" id="1_jmesu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ymmlo"]
+font_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvpu1"]
+bg_color = Color(0.105882, 0.105882, 0.105882, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="MultiplayerLobbyMenu" type="Control" node_paths=PackedStringArray("_peerList", "_chatLog", "_msgLine", "_btnStartGame")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jmesu")
+_peerList = NodePath("MarginContainer/Control/GroupPanel/MarginContainer/VBoxContainer/VBoxContainer")
+_chatLog = NodePath("MarginContainer/Control/Chat/MarginContainer/VBoxContainer/ChatLog/PanelContainer/MarginContainer/VBoxContainer")
+_msgLine = NodePath("MarginContainer/Control/Chat/MarginContainer/VBoxContainer/HBoxContainer/ChatMsgLine")
+_chatStyle = SubResource("LabelSettings_ymmlo")
+_btnStartGame = NodePath("MarginContainer/Control/OpsPanel/MarginContainer/VBoxContainer/BtnStartGame")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="GroupPanel" type="PanelContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Control/GroupPanel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control/GroupPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Control/GroupPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Group"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/Control/GroupPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control/GroupPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GameDetailsPanel" type="PanelContainer" parent="MarginContainer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Control/GameDetailsPanel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control/GameDetailsPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Control/GameDetailsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Game Options"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/Control/GameDetailsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="OptionStory" type="OptionButton" parent="MarginContainer/Control/GameDetailsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+item_count = 1
+selected = 0
+allow_reselect = true
+popup/item_0/text = "Story"
+popup/item_0/id = 0
+popup/item_0/disabled = true
+
+[node name="OptionGamemode" type="OptionButton" parent="MarginContainer/Control/GameDetailsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+item_count = 1
+selected = 0
+allow_reselect = true
+popup/item_0/text = "Gamemode"
+popup/item_0/id = 0
+popup/item_0/disabled = true
+
+[node name="OpsPanel" type="PanelContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Control/OpsPanel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control/OpsPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="BtnStartGame" type="Button" parent="MarginContainer/Control/OpsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="CheckButton" type="CheckButton" parent="MarginContainer/Control/OpsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Ready?"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/Control/OpsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BtnDisconnect" type="Button" parent="MarginContainer/Control/OpsPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Disconnect"
+
+[node name="Chat" type="PanelContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -240.0
+offset_right = 403.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Control/Chat"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control/Chat/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="ChatLog" type="ScrollContainer" parent="MarginContainer/Control/Chat/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Control/Chat/MarginContainer/VBoxContainer/ChatLog"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_xvpu1")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Control/Chat/MarginContainer/VBoxContainer/ChatLog/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control/Chat/MarginContainer/VBoxContainer/ChatLog/PanelContainer/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/Chat/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ChatMsgLine" type="LineEdit" parent="MarginContainer/Control/Chat/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+clear_button_enabled = true
+shortcut_keys_enabled = false
+
+[node name="BtnSend" type="Button" parent="MarginContainer/Control/Chat/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Send"
+
+[connection signal="pressed" from="MarginContainer/Control/OpsPanel/MarginContainer/VBoxContainer/BtnStartGame" to="." method="DoStartGame"]
+[connection signal="toggled" from="MarginContainer/Control/OpsPanel/MarginContainer/VBoxContainer/CheckButton" to="." method="OnReady"]
+[connection signal="pressed" from="MarginContainer/Control/OpsPanel/MarginContainer/VBoxContainer/BtnDisconnect" to="." method="OnDisconnect"]
+[connection signal="text_submitted" from="MarginContainer/Control/Chat/MarginContainer/VBoxContainer/HBoxContainer/ChatMsgLine" to="." method="SendMessage" unbinds=1]
+[connection signal="pressed" from="MarginContainer/Control/Chat/MarginContainer/VBoxContainer/HBoxContainer/BtnSend" to="." method="SendMessage"]

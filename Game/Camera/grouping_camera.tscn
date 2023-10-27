@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgd83fjwk2ode"]
+
+[ext_resource type="Script" path="res://Game/Camera/GroupingCamera.cs" id="1_yaapu"]
+
+[node name="GroupingCamera" type="Camera2D"]
+position = Vector2(-1, 0)
+script = ExtResource("1_yaapu")
